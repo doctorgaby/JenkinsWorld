@@ -20,7 +20,7 @@ RUN addgroup -g ${gid} ${group} \
 #    -------
 # Create docker group with gid = 497 and add jenkins to the group
 # This will allow the jenkins user to run docker commands
-RUN groupadd -g 497 docker && \
+RUN addgroup -g 497 docker && \
     usermod -a -G docker jenkins
 #-------
 # Jenkins home directory is a volume, so configuration and build history 
