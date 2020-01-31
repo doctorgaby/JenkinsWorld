@@ -17,12 +17,12 @@ ENV JENKINS_SLAVE_AGENT_PORT ${agent_port}
 # ensure you use the same uid
 RUN addgroup -g ${gid} ${group} \
     && adduser -h "$JENKINS_HOME" -u ${uid} -G ${group} -s /bin/bash -D ${user}
-    -------
+#    -------
 # Create docker group with gid = 497 and add jenkins to the group
 # This will allow the jenkins user to run docker commands
 RUN groupadd -g 497 docker && \
     usermod -a -G docker jenkins
--------
+#-------
 # Jenkins home directory is a volume, so configuration and build history 
 # can be persisted and survive image upgrades
 VOLUME /var/jenkins_home
